@@ -614,16 +614,18 @@ public abstract class Utils {
 
         paint.setTextAlign(originalTextAlign);
     }
-
     public static void drawXMultiLineText(Canvas c, String text, float x, float y,
                                           Paint paint,
                                           MPPointF anchor, float angleDegrees) {
+
+
+        String firstTextLine = text.split("\n")[0];
 
         float drawOffsetX = 0.f;
         float drawOffsetY = 0.f;
 
         final float lineHeight = paint.getFontMetrics(mFontMetricsBuffer);
-        paint.getTextBounds(text, 0, text.length(), mDrawTextRectBuffer);
+        paint.getTextBounds(firstTextLine, 0, firstTextLine.length(), mDrawTextRectBuffer);
 
         // Android sometimes has pre-padding
         drawOffsetX -= mDrawTextRectBuffer.left;
@@ -666,8 +668,8 @@ public abstract class Utils {
             {
                 c.drawText(line, drawOffsetX, drawOffsetY, paint);
                 drawOffsetY += paint.descent() - paint.ascent();
+
             }
-            //   c.drawText(text, drawOffsetX, drawOffsetY, paint);
 
             c.restore();
         } else {
@@ -675,6 +677,7 @@ public abstract class Utils {
 
                 drawOffsetX -= mDrawTextRectBuffer.width() * anchor.x;
                 drawOffsetY -= lineHeight * anchor.y;
+
             }
 
             drawOffsetX += x;
@@ -686,7 +689,6 @@ public abstract class Utils {
                 drawOffsetY += paint.descent() - paint.ascent();
             }
 
-            //  c.drawText(text, drawOffsetX, drawOffsetY, paint);
         }
 
         paint.setTextAlign(originalTextAlign);
