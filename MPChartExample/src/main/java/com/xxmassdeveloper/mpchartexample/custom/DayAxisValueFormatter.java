@@ -37,7 +37,7 @@ public class DayAxisValueFormatter extends ValueFormatter
 
             int dayOfMonth = determineDayOfMonth(days, month + 12 * (year - 2016));
 
-            String appendix = "th";
+            String appendix = "th\n";
 
             switch (dayOfMonth) {
                 case 1:

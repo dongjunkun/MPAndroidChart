@@ -49,6 +49,9 @@ public class XAxis extends AxisBase {
 
     private boolean mMultiLineLabel = false;
 
+    private int[] mMultipleLineLabelTextColors = new int[]{};
+    private float[] mMultipleLineLabelTextSizes = new float[]{};
+
     /**
      * the position of the x-labels relative to the chart
      */
@@ -130,5 +133,22 @@ public class XAxis extends AxisBase {
 
     public void setMultiLineLabel(boolean enabled) {
         mMultiLineLabel = enabled;
+    }
+
+    public int[] getMultipleLineLabelTextColors() {
+        return mMultipleLineLabelTextColors;
+    }
+
+    public void setMultiLineLabelColors(int[] colors) {
+        mMultipleLineLabelTextColors = colors;
+
+    }
+
+    public float[] getMultipleLineLabelTextSizes() {
+        return mMultipleLineLabelTextSizes;
+    }
+
+    public void setMultipleLabelSizes(float[] sizes) {
+        mMultipleLineLabelTextSizes = sizes;
     }
 }

@@ -3,10 +3,10 @@ package com.xxmassdeveloper.mpchartexample;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.graphics.RectF;
 import android.net.Uri;
 import android.os.Bundle;
-import androidx.core.content.ContextCompat;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -41,6 +41,8 @@ import com.xxmassdeveloper.mpchartexample.notimportant.DemoBase;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import androidx.core.content.ContextCompat;
 
 public class BarChartActivity extends DemoBase implements OnSeekBarChangeListener,
         OnChartValueSelectedListener {
@@ -93,6 +95,9 @@ public class BarChartActivity extends DemoBase implements OnSeekBarChangeListene
         xAxis.setDrawGridLines(false);
         xAxis.setGranularity(1f); // only intervals of 1 day
         xAxis.setLabelCount(7);
+        xAxis.setMultiLineLabel(true);
+        xAxis.setMultiLineLabelColors(new int[]{Color.parseColor("#ff0000"),Color.parseColor("#000000")});
+        xAxis.setMultipleLabelSizes(new float[]{12,14});
         xAxis.setValueFormatter(xAxisFormatter);
 
         ValueFormatter custom = new MyValueFormatter("$");
